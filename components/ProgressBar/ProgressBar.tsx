@@ -30,15 +30,15 @@ const PROGRESS_GRADIENTS = [
 
 export default function ProgressBar({ totalAmount, savedAmount, title, currency = "HUF", icon, gradientIndex=0 }: ProgressBarProps) {
   const progressPercentage = (savedAmount / totalAmount) * 100;
-  const remainingAmount = totalAmount - savedAmount;
+  const remainingAmount = totalAmount - savedAmount < 0 ? 0 : totalAmount - savedAmount;
 
   return (
-    <div className="bg-slate-800/40 border border-slate-800 rounded-xl p-4" style={{ width: "300px" }}>
+    <div className="bg-slate-800/40 border border-slate-800 rounded-xl p-4 w-80">
       <div className="flex justify-between items-start mb-2">
         <h3 className="font-semibold text-white text-sm">
           <i className="mr-1">{icon}</i>
           {title}
-          <p className="text-xs text-slate-400 mt-0.5">{savedAmount.toLocaleString()} / {totalAmount.toLocaleString()} {currency}</p>
+          <span className="text-xs text-slate-400 mt-0.5 block">{savedAmount.toLocaleString()} / {totalAmount.toLocaleString()} {currency}</span>
         </h3>
         <span className="text-xs font-semibold text-emerald-400">Needs: {remainingAmount.toLocaleString()} {currency}</span>
       </div>
