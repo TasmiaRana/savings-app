@@ -13,7 +13,7 @@ export default function RoundButton({
     icon
 }: RoundButtonProps) {
 
-    const baseLayout = "w-10 h-10 text-white rounded-full flex items-center justify-center text-slate-400 p-3";
+    const baseLayout = "w-10 h-10 rounded-full flex items-center justify-center p-3";
     const variants = {
         primary: "bg-slate-700 hover:bg-slate-500 transition",
         secondary: "border-2 border-slate-700/60 transition hover:bg-slate-700",
